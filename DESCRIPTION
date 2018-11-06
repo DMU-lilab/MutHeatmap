@@ -1,0 +1,16 @@
+Package: MutHeatmap
+Type: Package
+Title: Mutation heatmap with multiple mutation types
+Version: 1.0
+Date: 2019-09-21
+Author: Ywliao 
+Maintainer: Yuwei Liao <ywliao2015@gmail.com>
+Description: Plot a heat map with multiple mutation types within a gene
+License: file LICENSE
+Imports: data.table (>= 1.10.4), RColorBrewer (>= 1.1-2)
+Depends: R (>= 3.2.0)
+Encoding: UTF-8
+RoxygenNote: 6.1.0
+LazyData: true
+NeedsCompilation: no
+Packaged: 2019-09-21 17:06:42 UTC
