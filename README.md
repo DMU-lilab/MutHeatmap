@@ -33,7 +33,7 @@ Using devtools
 ```
 install.packages("devtools")
 library(devtools)
-install_github("DMU-lilab/MutHeatmap", "--no-docs")
+install_github("DMU-lilab/MutHeatmap")
 ```
 ### Option 2
 Manual installation
