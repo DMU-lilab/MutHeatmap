@@ -43,7 +43,7 @@ Manual installation
  ```install.packages("data.table") # version > 1.10.4```
 
 #### Install the MutHeatmap package
-From the command line and in the directory where FindPeek github was cloned.
+From the command line and in the directory where MutHeatmap github was cloned.
 ```R CMD INSTALL MutHeatmap ```
 
 ### Usage
