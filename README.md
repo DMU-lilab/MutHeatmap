@@ -37,7 +37,7 @@ install_github("DMU-lilab/MutHeatmap")
 ```
 ### Option 2
 Manual installation
-#### Checkout the latest release of FindPeek from GitHub
+#### Checkout the latest release of MutHeatmap from GitHub
 ```git clone https://github.com/DMU-lilab/MutHeatmap.git```
 #### Install R dependencies (in R)
  ```install.packages("data.table") # version > 1.10.4```
