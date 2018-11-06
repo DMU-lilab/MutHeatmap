@@ -46,3 +46,5 @@ Manual installation
 From the command line and in the directory where FindPeek github was cloned.
 ```R CMD INSTALL MutHeatmap ```
 
+### Usage
+```?MutHeatmap```to access the documentation pages for function MutHeatmap
