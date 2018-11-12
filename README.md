@@ -48,5 +48,5 @@ From the command line and in the directory where MutHeatmap github was cloned.
 
 ### Usage
 ```?MutHeatmap```to access the documentation pages for function MutHeatmap
-### Tetst data
+### Test data
 vr as built in data can be used for testing.
