@@ -146,7 +146,6 @@ require(RColorBrewer)
 
 MutHeatmap <- function(vr, pal = c("#F2F2F2",colorRampPalette(c("blue", "white", "red"))(5)[c(1,2)],"#F2F2F2",colorRampPalette(c("blue", "white", "red"))(5)[c(4,5)],brewer.pal(n = 8, name ="Accent")[c(1,4,6,8,2,3,5,7)],"#E31A1C","#6A3D9A"),type = c("DEL","LOSS","NEUTRAL","GAIN","AMPL","nonsynonymous SNV","synonymous SNV","intronic","stopgain","nonframeshift deletion","splicing", "frameshift deletion","UTR3","frameshift insertion","UTR5"),order_gene = T, order_patient = T, hist_plot = T, legend_dist = 0.4, col_text_cex = 1, row_text_cex = 1, sub_gene= NULL,heatmap_mar = c(5,17,1,2), heatmap_oma=c(0.2,0.2,0.2,0.2),heatmap_mex=0.5, legend_mar = c(1,0,4,1),xlab_adj=1, order_omit=c("NEUTRAL"), annotation_col=NULL, annotation_colors = NULL, heatmap_height = 3, heatmap_width = 3, anno_height=NULL)
 {
-  if(length(pal) > 18){stop("Error! max number of mutation type is 17!")}
   if((length(pal) - length(type)) !=1 ){stop("Error! Pal must be one longer than type, because first one pal is col for no mutation")}
   if(sum(unique(vr$Type) %in%  type) != length(unique(vr$Type))){stop("Error! Some mutations in data don't have corresponding color")}
   if(!is.null(annotation_col) & sum(colnames(annotation_col) %in% names(annotation_colors)) != length(colnames(annotation_col))){stop("Error! The annotation_colors are not match to annotation_col")}
@@ -183,7 +182,7 @@ MutHeatmap <- function(vr, pal = c("#F2F2F2",colorRampPalette(c("blue", "white",
   data_matrix<-data.matrix(dc[,-1])
   data_matrix[is.na(data_matrix)] <- 0
   pal=pal
-  breaks<-seq(-1,17,1)
+  breaks<-seq(-1, length(pal)-1, 1)
   if(!hist_plot & is.null(annotation_col)){
     layout(matrix(data=c(1,2), nrow=1, ncol=2), widths=c(8,2), heights=c(1,1))
     par(mar=heatmap_mar, oma=heatmap_oma, mex=heatmap_mex)
@@ -207,7 +206,7 @@ MutHeatmap <- function(vr, pal = c("#F2F2F2",colorRampPalette(c("blue", "white",
   image(x=1:nrow(data_matrix),y=1:ncol(data_matrix),
         z=data_matrix,xlab="",ylab="",
         breaks = breaks,
-        col=pal[1:18],axes=FALSE)
+        col=pal[1:length(pal)],axes=FALSE)
 
   #sub plot
   add_plot <- function(dt, i){
