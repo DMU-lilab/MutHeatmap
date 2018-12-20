@@ -159,6 +159,9 @@ MutHeatmap <- function(vr, pal = c("#F2F2F2",colorRampPalette(c("blue", "white",
     type <- pal_dt[type %in% unique(vr$Type),type]
     pal <- c(pal[1],pal_dt[type, on="type"][,pal])
   }
+  if(sum(vr$Patient %like% "^[0-9]") > 1){
+    warning("Patient names should not begin with number and P was added!")
+    vr$Patient <- paste0("P", vr$Patient)}
   dt <- unique(vr[,.(Gene,Type,Patient)])
   dt$Type <- factor(dt$Type, levels = type)
   if(order_gene){gene <- dt[!Type %in% order_omit,.(N=length(unique(Patient))),by=Gene][order(N),Gene]}else{gene <- unique(dt[!Type %in% order_omit, Gene])}
